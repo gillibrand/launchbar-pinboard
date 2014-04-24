@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>gillibrand.jay.pinboard-recent</string>
+	<key>CFBundleIconFile</key>
+	<string>PinboardTemplate.png</string>
+	<key>CFBundleName</key>
+	<string>Pinboard: Recent Bookmarks</string>
+	<key>LBAbbreviation</key>
+	<string>pbr</string>
+	<key>LBDebugLogEnabled</key>
+	<false/>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
+			<key>LBScriptName</key>
+			<string>shared+pinboard-recent.js</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBRequiresArgument</key>
+			<false/>
+			<key>LBLiveFeedbackEnabled</key>
+			<false/>
+		</dict>
+	</dict>
+</dict>
+</plist>
