@@ -10,7 +10,7 @@ function run(apiToken) {
 	});
 
 	results.push({
-		title: 'Lookup your API token',
+		title: 'Look up your API token',
 		subtitle: 'View your API token on Pinboard',
 		url: 'https://pinboard.in/settings/password'
 	});

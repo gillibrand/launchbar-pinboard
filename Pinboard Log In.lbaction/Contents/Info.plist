@@ -32,5 +32,15 @@
 			<true/>
 		</dict>
 	</dict>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Jay Gillibrand</string>
+		<key>LBWebsite</key>
+		<string>https://github.com/gillibrand/launchbar-pinboard</string>
+		<key>LBSummary</key>
+		<string>Required to log in to your Pinboard account. Used by other Pinboard actions.</string>
+	</dict>
+
 </dict>
 </plist>

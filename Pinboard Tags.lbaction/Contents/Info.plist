@@ -5,7 +5,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>gillibrand.jay.pinboard-tags</string>
 	<key>CFBundleIconFile</key>
-	<string>TagTemplate.png</string>
+	<string>PinboardTemplate.png</string>
 	<key>CFBundleName</key>
 	<string>Pinboard: Tags</string>
 	<key>LBAbbreviation</key>
@@ -30,5 +30,19 @@
 			<false/>
 		</dict>
 	</dict>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Jay Gillibrand</string>
+		<key>LBWebsite</key>
+		<string>https://github.com/gillibrand/launchbar-pinboard</string>
+		<key>LBSummary</key>
+		<string>Lists you Pinboard tags.</string>
+		<key>LBResult</key>
+		<string>Your Pinboard tags sorted from most used to least. Selecting a tag will list all the bookmarks for that tag.</string>
+		<key>LBRequirements</key>
+		<string>"Pinboard Log In" action.</string>
+	</dict>
+
 </dict>
 </plist>

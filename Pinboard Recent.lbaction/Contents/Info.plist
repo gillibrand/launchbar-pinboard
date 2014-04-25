@@ -30,5 +30,18 @@
 			<false/>
 		</dict>
 	</dict>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Jay Gillibrand</string>
+		<key>LBWebsite</key>
+		<string>https://github.com/gillibrand/launchbar-pinboard</string>
+		<key>LBSummary</key>
+		<string>Lists you most recent Pinboard bookmarks.</string>
+		<key>LBResult</key>
+		<string>Up to 25 recent bookmarks.</string>
+		<key>LBRequirements</key>
+		<string>"Pinboard Log In" action.</string>
+	</dict>
 </dict>
 </plist>

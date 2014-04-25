@@ -1,7 +1,6 @@
 var path = require('path');
 
 module.exports = function(grunt) {
-
 	grunt.initConfig({
 
 		clean: {
@@ -52,7 +51,7 @@ module.exports = function(grunt) {
 
 		watch: {
 			install: {
-				files: ['**/*.js', '!**/shared+*.js', 'shared/**/*.png'],
+				files: ['**/*.js', '!**/shared+*.js', 'shared/**/*.png', '*/*/Info.plist'],
 				tasks: ['default', 'jshint']
 			}
 		},
@@ -66,8 +65,6 @@ module.exports = function(grunt) {
 			},
 			scripts: ['Gruntfile.js', 'shared/**/*.js', '*.lbaction/**/*.js', '!**/shared+*.js']
 		}
-
-
 	});
 
 	require('load-grunt-tasks')(grunt);

@@ -18,14 +18,11 @@ function loadApiToken() {
 function getUrl(url, params) {
 	 url = url + '?format=json&auth_token=' + apiToken_;
 
-	 LaunchBar.debugLog('Parmas ' + params);
-
 	 if (params) {
 	 	for (var name in params) {
 	 		url += '&' + name + '=' + params[name];
 	 	}
 	 }
-	 LaunchBar.debugLog('GET ' + url);
 
 	 var result = HTTP.getJSON(url);
 
@@ -68,7 +65,9 @@ function postsAsListResults(posts) {
 function run() {
 	if (!loadApiToken()) return;
 
-	var data = getUrl('https://api.pinboard.in/v1/posts/recent');
+	var data = getUrl('https://api.pinboard.in/v1/posts/recent', {
+		count: 25
+	});
 	if (!data) return;
 
 	return postsAsListResults(data.posts);
