@@ -26,7 +26,7 @@ Lists your Pinboard tags sorted from most-used to least. Selecting a tag lists a
 
 # Building
 
-If you want edit or customize these actions for yourself, be aware that `Grunt` is used to append a shared script to each of the individual actions scripts. See `shared.js` for more detail.
+If you want edit or customize these actions for yourself, be aware that `Grunt` is used to append a shared script to each of the individual action scripts. See `shared.js` for more detail.
 
 # Version History
 
