@@ -60,8 +60,8 @@ function getUrl(url, params) {
 
 	 if (result.response.status === 401) {
 	 	LaunchBar.alert(
-	 		'You are not longer logged in to Pinboard through LaunchBar.',
-	 		'You API token is wrong or has expired. You must enter it again.');
+	 		'You are no longer logged in to Pinboard through LaunchBar.',
+	 		'Your API token is wrong or has expired. You must enter it again.');
 	 	LaunchBar.performAction('Pinboard: Log In');
 	 	return null;
 	 }
