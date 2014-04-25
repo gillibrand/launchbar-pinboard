@@ -1,8 +1,12 @@
 # Pinboard for LaunchBar
 
-A suite of custom actions for LaunchBar 6 (beta) that provide access to Pinboard bookmarks. 
+A suite of custom actions for [LaunchBar 6 (beta)](http://blog.obdev.at/post/announcing-launchbar-6-beta/) that provide access to Pinboard bookmarks. 
 
 ![Pinboard actions in LaunchBar](Pinboard-Actions.png)
+
+# Installation
+
+[Download the ZIP](https://github.com/gillibrand/launchbar-pinboard/archive/master.zip) and unzip. Each action is a `.lbaction` that you can double-click to install. Only the `Pinboard Log In` action is required.
 
 # Actions
 

@@ -1,3 +1,6 @@
+/**
+ * Lists all tags, sorted by count.
+ */
 function run() {
 	if (!loadApiToken()) return;
 
@@ -29,6 +32,10 @@ function run() {
 	return results;
 }
 
+/**
+ * List the bookmarks for a given tag.
+ * @param  {string} tag name of the tag.
+ */
 function listTag(tag) {
 	if (!loadApiToken()) return;
 
