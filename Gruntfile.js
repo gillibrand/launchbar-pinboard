@@ -27,13 +27,19 @@ module.exports = function(grunt) {
 						cwd: 'shared',
 						src: 'Contents/Resources/**/*.png',
 						dest: 'Pinboard Tags.lbaction/'
+					},
+					{
+						expand: true,
+						cwd: 'shared',
+						src: 'Contents/Resources/**/*.png',
+						dest: 'Pinboard Search.lbaction/'
 					}
 				]
 			},
 
 			installActions: {
 				expand: true,
-				src: ['Pinboard Recent.lbaction/**', 'Pinboard Log In.lbaction/**', 'Pinboard Tags.lbaction/**'],
+				src: ['Pinboard Recent.lbaction/**', 'Pinboard Log In.lbaction/**', 'Pinboard Tags.lbaction/**', 'Pinboard Search.lbaction/**'],
 				dest: path.join(process.env.HOME, 'Library/Application Support/LaunchBar/Actions/')
 			}
 		},
@@ -46,6 +52,10 @@ module.exports = function(grunt) {
 			tags: {
 				src: ['shared/Contents/Scripts/shared.js', 'Pinboard Tags.lbaction/Contents/Scripts/pinboard-tags.js'],
 				dest: 'Pinboard Tags.lbaction/Contents/Scripts/shared+pinboard-tags.js'
+			},
+			search: {
+				src: ['shared/Contents/Scripts/shared.js', 'Pinboard Search.lbaction/Contents/Scripts/pinboard-search.js'],
+				dest: 'Pinboard Search.lbaction/Contents/Scripts/shared+pinboard-search.js'
 			}
 		},
 

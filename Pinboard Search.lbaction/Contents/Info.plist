@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>gillibrand.jay.pinboard-search</string>
+	<key>CFBundleIconFile</key>
+	<string>PinboardTemplate.png</string>
+	<key>LBTextInputTitle</key>
+	<string>Search</string>
+	<key>CFBundleName</key>
+	<string>Pinboard: Search Bookmarks</string>
+	<key>LBAbbreviation</key>
+	<string>pbs</string>
+	<key>LBDebugLogEnabled</key>
+	<true/>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
+			<key>LBScriptName</key>
+			<string>shared+pinboard-search.js</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBLiveFeedbackEnabled</key>
+			<true/>
+			<key>LBRequiresArgument</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Jay Gillibrand</string>
+		<key>LBWebsite</key>
+		<string>https://github.com/gillibrand/launchbar-pinboard</string>
+		<key>LBSummary</key>
+		<string>Searches all your bookmarks.</string>
+		<key>LBResult</key>
+		<string>Your Pinboard bookmarks that have a matching title, description, tag, or URL.</string>
+		<key>LBRequirements</key>
+		<string>"Pinboard Log In" action.</string>
+	</dict>
+
+</dict>
+</plist>
