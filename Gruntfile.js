@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 			installActions: {
 				expand: true,
 				src: ['Pinboard Recent.lbaction/**', 'Pinboard Log In.lbaction/**', 'Pinboard Tags.lbaction/**', 'Pinboard Search.lbaction/**'],
-				dest: path.join(process.env.HOME, 'Library/Application Support/LaunchBar/Actions/')
+				dest: path.join(process.env.HOME || process.env.USERPROFILE, 'Library/Application Support/LaunchBar/Actions/')
 			}
 		},
 
@@ -62,7 +62,12 @@ module.exports = function(grunt) {
 		watch: {
 			install: {
 				files: ['**/*.js', '!**/shared+*.js', 'shared/**/*.png', '*/*/Info.plist'],
-				tasks: ['default', 'jshint']
+				tasks: ['default', 'jshint', 'mochaTest']
+			},
+
+			test: {
+				files: ['**/*.js', '!**/shared+*.js'],
+				tasks: 'mochaTest'
 			}
 		},
 
@@ -74,6 +79,12 @@ module.exports = function(grunt) {
 				laxbreak: true
 			},
 			scripts: ['Gruntfile.js', 'shared/**/*.js', '*.lbaction/**/*.js', '!**/shared+*.js']
+		},
+
+		mochaTest: {
+			test: {
+				src: 'test/*.js'
+			}
 		}
 	});
 
