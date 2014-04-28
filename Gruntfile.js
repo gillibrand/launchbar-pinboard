@@ -54,8 +54,11 @@ module.exports = function(grunt) {
 				dest: 'Pinboard Tags.lbaction/Contents/Scripts/shared+pinboard-tags.js'
 			},
 			search: {
-				src: ['shared/Contents/Scripts/shared.js', 'Pinboard Search.lbaction/Contents/Scripts/pinboard-search.js'],
-				dest: 'Pinboard Search.lbaction/Contents/Scripts/shared+pinboard-search.js'
+				src: [
+					'shared/Contents/Scripts/shared.js',
+					'Pinboard Search.lbaction/Contents/Scripts/searching.js',
+					'Pinboard Search.lbaction/Contents/Scripts/pinboard-search.js'],
+				dest: 'Pinboard Search.lbaction/Contents/Scripts/shared+searching+pinboard-search.js'
 			}
 		},
 

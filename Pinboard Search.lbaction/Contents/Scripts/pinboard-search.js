@@ -5,7 +5,7 @@ function run(query) {
 		return [];
 	}
 
-	if (!loadApiToken()) return;
+	if (!loadApiToken()) return [];
 
 	var posts = getCachedAllPosts();
 
@@ -39,16 +39,14 @@ function searchPosts(simplePosts, query) {
 	query = query.toLowerCase().trim();
 	if (query.length < 2) return [];
 
-	return simplePosts.filter(function(simplePost) {
-		return simplePost.indexedText.indexOf(query) !== -1;
-	});
+	searching.searchObjectsWithIndexedText(query, simplePosts);
 }
 
 function cacheAllPosts() {
 	var allPosts = getUrl('https://api.pinboard.in/v1/posts/all');
 
 	var simplePosts = allPosts.map(function(post) {
-		var indexedText = (post.description + ' ' + post.extended + ' ' + post.tags + ' ' + post.href).toLowerCase();
+		var indexedText = searching.indexText(post.description + ' ' + post.extended + ' ' + post.tags + ' ' + post.href);
 		post.indexedText = indexedText;
 		return post;
 	});

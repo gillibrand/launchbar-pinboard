@@ -23,7 +23,7 @@
 				<string>string</string>
 			</array>
 			<key>LBScriptName</key>
-			<string>shared+pinboard-search.js</string>
+			<string>shared+searching+pinboard-search.js</string>
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBLiveFeedbackEnabled</key>
