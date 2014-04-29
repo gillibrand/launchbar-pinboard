@@ -1,6 +1,6 @@
 # Pinboard for LaunchBar
 
-A suite of custom actions for [LaunchBar 6 (beta)](http://blog.obdev.at/post/announcing-launchbar-6-beta/) that provide access to [Pinboard](https://pinboard.in/u:gillibrand) bookmarks. 
+A suite of custom actions for [LaunchBar 6 (beta)](http://blog.obdev.at/post/announcing-launchbar-6-beta/) that provide access to [Pinboard](https://pinboard.in) bookmarks. 
 
 ![Pinboard actions in LaunchBar](Pinboard-Actions.png)
 
