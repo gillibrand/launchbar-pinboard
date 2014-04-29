@@ -36,7 +36,7 @@ If you want edit or customize these actions for yourself, be aware that `Grunt` 
 
 # Version History
 
-### 4/29/2014
+#### 4/26/2014
 
 - Added `Pinboard Search` action.
 
