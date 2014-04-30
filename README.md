@@ -26,7 +26,7 @@ Lists your Pinboard tags sorted from most-used to least. Selecting a tag lists a
 
 ## Pinboard Search
 
-Searches the titles, descriptions, tags, and URLs of all your bookmarks.
+Searches the titles, descriptions, and tags of all your bookmarks.
 
 Search results can be up to five minutes out-of-date. This is done to improve performance if you have a large number of bookmarks. If you notice your results are out-of-date, you can try searching for `refresh` with this action and choosing the `Refresh your out-of-date bookmarks` action.
 

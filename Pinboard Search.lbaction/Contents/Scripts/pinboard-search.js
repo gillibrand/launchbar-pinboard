@@ -39,14 +39,14 @@ function searchPosts(simplePosts, query) {
 	query = query.toLowerCase().trim();
 	if (query.length < 2) return [];
 
-	searching.searchObjectsWithIndexedText(query, simplePosts);
+	return search.searchObjectsWithIndexedText(simplePosts, query);
 }
 
 function cacheAllPosts() {
 	var allPosts = getUrl('https://api.pinboard.in/v1/posts/all');
 
 	var simplePosts = allPosts.map(function(post) {
-		var indexedText = searching.indexText(post.description + ' ' + post.extended + ' ' + post.tags + ' ' + post.href);
+		var indexedText = search.indexText(post.description + ' ' + post.extended + ' ' + post.tags);
 		post.indexedText = indexedText;
 		return post;
 	});

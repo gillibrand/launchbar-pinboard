@@ -56,29 +56,21 @@ module.exports = function(grunt) {
 			search: {
 				src: [
 					'shared/Contents/Scripts/shared.js',
-					'Pinboard Search.lbaction/Contents/Scripts/searching.js',
+					'Pinboard Search.lbaction/Contents/Scripts/search.js',
 					'Pinboard Search.lbaction/Contents/Scripts/pinboard-search.js'],
-				dest: 'Pinboard Search.lbaction/Contents/Scripts/shared+searching+pinboard-search.js'
+				dest: 'Pinboard Search.lbaction/Contents/Scripts/shared+search+pinboard-search.js'
 			}
 		},
 
 		watch: {
 			install: {
-				files: ['**/*.js', '!**/shared+*.js', 'shared/**/*.png', '*/*/Info.plist'],
-				tasks: ['default', 'jshint', 'mochaTest']
-			},
-
-			test: {
-				files: ['**/*.js', '!**/shared+*.js'],
-				tasks: 'mochaTest'
+				files: ['**/*.js', 'shared/**/*.png', '*/*/Info.plist', '!**/shared+*.js', '!node_modules/**/*.js'],
+				tasks: ['default']
 			}
 		},
 
 		jshint: {
 			options: {
-				undef: true,
-				node: true, 
-				predef: ['getUrl', 'loadApiToken', 'LaunchBar', 'HTTP', 'Action', 'File', 'postsAsListResults'],
 				laxbreak: true
 			},
 			scripts: ['Gruntfile.js', 'shared/**/*.js', '*.lbaction/**/*.js', '!**/shared+*.js']
