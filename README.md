@@ -1,6 +1,6 @@
 # Pinboard for LaunchBar
 
-A suite of custom actions for [LaunchBar 6 (beta)](http://blog.obdev.at/post/announcing-launchbar-6-beta/) that provide access to [Pinboard](https://pinboard.in/u:gillibrand) bookmarks. 
+A suite of custom actions for [LaunchBar 6 (beta)](http://blog.obdev.at/post/announcing-launchbar-6-beta/) that provide access to [Pinboard](https://pinboard.in) bookmarks. 
 
 ![Pinboard actions in LaunchBar](Pinboard-Actions.png)
 
@@ -35,6 +35,10 @@ Search results can be up to five minutes out-of-date. This is done to improve pe
 If you want edit or customize these actions for yourself, be aware that `Grunt` is used to append a shared script to each of the individual action scripts. See `shared.js` for more detail.
 
 # Version History
+
+#### 4/26/2014
+
+- Added `Pinboard Search` action.
 
 #### 4/24/2014
 
