@@ -162,7 +162,6 @@ var search = (function() {
 		});
 
 		matchingObjects.forEach(function(m) {
-			LaunchBar.debugLog('Search match: ' + m.description + ' (score: ' + m.__score__ + ')');
 			delete m.__score__;
 		});
 	
@@ -187,10 +186,13 @@ var search = (function() {
 	};
 })();
 
-
-if (this.module) {
-	this.module.exports = search;
+try {
+	module.exports = search;
 }
+catch (e) {
+	// not in a node.js
+}
+
 var ALL_POSTS_FILE = Action.supportPath + '/all-posts.json';
 
 function run(query) {
