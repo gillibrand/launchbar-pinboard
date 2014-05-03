@@ -1,5 +1,8 @@
 var path = require('path');
 
+var ACTIONS_DIR = 'Pinboard.lbext/Contents/Resources/Actions/';
+
+
 module.exports = function(grunt) {
 	grunt.initConfig({
 
@@ -14,51 +17,57 @@ module.exports = function(grunt) {
 						expand: true,
 						cwd: 'shared',
 						src: 'Contents/Resources/**/*.png',
-						dest: 'Pinboard Log In.lbaction/'
+						dest: ACTIONS_DIR + 'Pinboard Log In.lbaction/'
 					},
 					{
 						expand: true,
 						cwd: 'shared',
 						src: 'Contents/Resources/**/*.png',
-						dest: 'Pinboard Recent.lbaction/'
+						dest: ACTIONS_DIR + 'Pinboard Recent.lbaction/'
 					},
 					{
 						expand: true,
 						cwd: 'shared',
 						src: 'Contents/Resources/**/*.png',
-						dest: 'Pinboard Tags.lbaction/'
+						dest: ACTIONS_DIR + 'Pinboard Tags.lbaction/'
 					},
 					{
 						expand: true,
 						cwd: 'shared',
 						src: 'Contents/Resources/**/*.png',
-						dest: 'Pinboard Search.lbaction/'
+						dest: ACTIONS_DIR + 'Pinboard Search.lbaction/'
 					}
 				]
 			},
 
 			installActions: {
 				expand: true,
-				src: ['Pinboard Recent.lbaction/**', 'Pinboard Log In.lbaction/**', 'Pinboard Tags.lbaction/**', 'Pinboard Search.lbaction/**'],
-				dest: path.join(process.env.HOME || process.env.USERPROFILE, 'Library/Application Support/LaunchBar/Actions/')
+				src: [
+					ACTIONS_DIR + 'Pinboard Recent.lbaction/**',
+					ACTIONS_DIR + 'Pinboard Log In.lbaction/**',
+					ACTIONS_DIR + 'Pinboard Tags.lbaction/**',
+					ACTIONS_DIR + 'Pinboard Search.lbaction/**'],
+				dest: path.join(
+					process.env.HOME || process.env.USERPROFILE,
+					'Library/Application Support/LaunchBar/Actions/')
 			}
 		},
 
 		concat: {
 			recent: {
-				src: ['shared/Contents/Scripts/shared.js', 'Pinboard Recent.lbaction/Contents/Scripts/pinboard-recent.js'],
-				dest: 'Pinboard Recent.lbaction/Contents/Scripts/shared+pinboard-recent.js'
+				src: ['shared/Contents/Scripts/shared.js', ACTIONS_DIR + 'Pinboard Recent.lbaction/Contents/Scripts/pinboard-recent.js'],
+				dest: ACTIONS_DIR + 'Pinboard Recent.lbaction/Contents/Scripts/shared+pinboard-recent.js'
 			},
 			tags: {
-				src: ['shared/Contents/Scripts/shared.js', 'Pinboard Tags.lbaction/Contents/Scripts/pinboard-tags.js'],
-				dest: 'Pinboard Tags.lbaction/Contents/Scripts/shared+pinboard-tags.js'
+				src: ['shared/Contents/Scripts/shared.js', ACTIONS_DIR + 'Pinboard Tags.lbaction/Contents/Scripts/pinboard-tags.js'],
+				dest: ACTIONS_DIR + 'Pinboard Tags.lbaction/Contents/Scripts/shared+pinboard-tags.js'
 			},
 			search: {
 				src: [
 					'shared/Contents/Scripts/shared.js',
-					'Pinboard Search.lbaction/Contents/Scripts/search.js',
-					'Pinboard Search.lbaction/Contents/Scripts/pinboard-search.js'],
-				dest: 'Pinboard Search.lbaction/Contents/Scripts/shared+search+pinboard-search.js'
+					ACTIONS_DIR + 'Pinboard Search.lbaction/Contents/Scripts/search.js',
+					ACTIONS_DIR + 'Pinboard Search.lbaction/Contents/Scripts/pinboard-search.js'],
+				dest: ACTIONS_DIR + 'Pinboard Search.lbaction/Contents/Scripts/shared+search+pinboard-search.js'
 			}
 		},
 

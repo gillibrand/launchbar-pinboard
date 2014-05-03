@@ -1,5 +1,7 @@
+var ACTIONS_DIR = 'Pinboard.lbext/Contents/Resources/Actions/';
+
 var assert = require('assert');
-var search = require('../Pinboard Search.lbaction/Contents/Scripts/search');
+var search = require('../' + ACTIONS_DIR + 'Pinboard Search.lbaction/Contents/Scripts/search');
 
 describe('search', function() {
 

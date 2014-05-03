@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleName</key>
+	<string>Pinboard for LaunchBar</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Jay Gillibrand</string>
+		<key>LBSummary</key>
+		<string>Searches and lists your Pinboard.in bookmarks.</string>
+		<key>LBWebsite</key>
+		<string>https://github.com/gillibrand/launchbar-pinboard</string>
+	</dict>
+</dict>
+</plist>
