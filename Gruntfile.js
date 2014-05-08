@@ -41,12 +41,13 @@ module.exports = function(grunt) {
 			},
 
 			installActions: {
+				cwd: 'Pinboard.lbext/Contents/Resources/Actions',
 				expand: true,
 				src: [
-					ACTIONS_DIR + 'Pinboard Recent.lbaction/**',
-					ACTIONS_DIR + 'Pinboard Log In.lbaction/**',
-					ACTIONS_DIR + 'Pinboard Tags.lbaction/**',
-					ACTIONS_DIR + 'Pinboard Search.lbaction/**'],
+					'Pinboard Recent.lbaction/**',
+					'Pinboard Log In.lbaction/**',
+					'Pinboard Tags.lbaction/**',
+					'Pinboard Search.lbaction/**'],
 				dest: path.join(
 					process.env.HOME || process.env.USERPROFILE,
 					'Library/Application Support/LaunchBar/Actions/')
