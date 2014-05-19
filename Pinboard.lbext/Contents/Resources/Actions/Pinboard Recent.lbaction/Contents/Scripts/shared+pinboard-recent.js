@@ -11,6 +11,24 @@
  */
 var apiToken_;
 
+function loginActionSupportPath() {
+	var path = Action.supportPath;
+	var lastSlash = path.lastIndexOf('/');
+	return path.slice(0, lastSlash) + '/gillibrand.jay.pinboard.login';
+}
+
+function loginCachePath() {
+	var path = Action.cachePath;
+	var lastSlash = path.lastIndexOf('/');
+	return path.slice(0, lastSlash) + '/gillibrand.jay.pinboard.login';
+}
+
+function loginBundleResources() {
+	var path = Action.path;
+	var lastSlash = path.lastIndexOf('/');
+	return path.slice(0, lastSlash) + '/Pinboard Log In.lbaction/Contents/Resources';
+}
+
 /**
  * Reads the saved API token from a support file.
  * If the file cannot be read, prompts the user for
@@ -19,11 +37,9 @@ var apiToken_;
  * @return {boolean} true if the token was loaded (user is logged in).
  */
 function loadApiToken() {
-	var file = Action.supportPath;
-	var lastSlash = file.lastIndexOf('/');
 	// The file is save in the support folder for the Pinboard Log In action.
 	// Different actions can't share a support folder, so just hard-code where it is.
-	file = file.slice(0, lastSlash) + '/gillibrand.jay.pinboard.login/api-token.txt';
+	file = loginActionSupportPath() + '/api-token.txt';
 
 	try {
 		apiToken_ = File.readText(file);
@@ -73,6 +89,13 @@ function getUrl(url, params) {
 	 }
 }
 
+function siteForUrl(url) {
+	var start = url.indexOf('://');
+	var end = url.indexOf('/', start + 3);
+	var site = end === -1 ? url : url.slice(0, end);
+	return site + '/';
+}
+
 /**
  * Converts Piboard post (bookmark) JSON objects to list results
  * to present in LaunchBar.
@@ -80,11 +103,38 @@ function getUrl(url, params) {
  * @return {array}       LaunchBar results.
  */
 function postsAsListResults(posts) {
+
+	var faviconCacheDir = loginCachePath();
+
+	var cmd = [loginBundleResources() + '/favicons', '-fork', '-dir', faviconCacheDir];
+
+	posts.forEach(function(post) {
+		var site = siteForUrl(post.href);
+		post.site = site;
+		post.icon = site + '.png';
+		cmd.push(site);
+	});
+
+	try {
+		LaunchBar.execute.apply(LaunchBar, cmd);
+	}
+	catch (e) {
+		LaunchBar.log('Failed to execute process to download favicons. The error was: ' + e);
+	}
+
 	return posts.map(function(post) {
+		var iconFileName = post.site.replace(/^https?:\/\//, '').replace(/\/$/, '.png');
+		var iconPath = faviconCacheDir + '/' + iconFileName;
+
+		if (!File.exists(iconPath)) iconPath = undefined; 
+		// Was using a custom bookmark icon (BookmarkTemplate.png), but
+		//decided switched to LaunchBar default when there is no custom
+		//favicon to avoid confusion.
+
 		var result = {
 			title: post.description,
 			url: post.href,
-			icon: 'BookmarkTemplate.png'
+			icon: iconPath
 		};
 
 		result.subtitle = post.extended
@@ -104,6 +154,7 @@ function run() {
 	var data = getUrl('https://api.pinboard.in/v1/posts/recent', {
 		count: 25
 	});
+
 	if (!data) return;
 
 	return postsAsListResults(data.posts);

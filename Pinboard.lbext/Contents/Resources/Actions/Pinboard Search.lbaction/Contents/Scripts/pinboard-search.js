@@ -1,4 +1,4 @@
-var ALL_POSTS_FILE = Action.supportPath + '/all-posts.json';
+var ALL_POSTS_FILE = Action.cachePath + '/all-posts.json';
 
 function run(query) {
 	if (!query) {
