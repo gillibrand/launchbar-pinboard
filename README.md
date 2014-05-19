@@ -1,3 +1,9 @@
+# ⚠️ `favicons` Branch ⚠️
+
+This branch is experimenting with a native to download favicons in the background while browsing Pinboard bookmarks. The LaunchBar actions don't wait for this icons to download, so aren't initially visible, but will be visible the next time around. This executable targets OS X 10.9 64-bit only. If you meet those requirements, feel free to try this out and raise issues (no request for older releases please, unless you want to test and contribute yourself).
+
+---
+
 # Pinboard for LaunchBar
 
 A suite of custom actions for [LaunchBar 6 (beta)](http://blog.obdev.at/post/announcing-launchbar-6-beta/) that provide access to [Pinboard](https://pinboard.in) bookmarks. 
