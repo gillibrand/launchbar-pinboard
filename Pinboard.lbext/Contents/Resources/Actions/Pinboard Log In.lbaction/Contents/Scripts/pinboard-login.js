@@ -15,7 +15,19 @@ function run(apiToken) {
 		url: 'https://pinboard.in/settings/password'
 	});
 
+	if (File.exists(apiTokenPath())) {
+		results.push({
+			title: 'Log Out',
+			subtitle: 'Delete your saved API token.',
+			action: 'deleteApiToken'
+		});
+	}
+
 	return results;
+}
+
+function apiTokenPath() {
+	return Action.supportPath + '/api-token.txt';
 }
 
 function saveApiToken(apiToken) {
@@ -31,9 +43,16 @@ function saveApiToken(apiToken) {
 	}
 
 	// Multiple actions want to access this, so save in a common location instead of the support path just for this action.
-	File.writeText(apiToken, Action.supportPath + '/api-token.txt');
+	File.writeText(apiToken, apiTokenPath());
 
 	LaunchBar.displayNotification({
 		string: 'Successfully logged in to Pinboard'
 	});
+}
+
+
+function deleteApiToken() {
+	LaunchBar.log('log out ' + apiTokenPath());
+	var out = LaunchBar.execute('/bin/bash', '-c', 'rm \'' + apiTokenPath() + '\'');
+	LaunchBar.log(out);
 }

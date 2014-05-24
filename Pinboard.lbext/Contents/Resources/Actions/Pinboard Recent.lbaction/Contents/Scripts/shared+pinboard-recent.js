@@ -30,6 +30,7 @@ function loadApiToken() {
 		return true;
 	}
 	catch (e) {
+		LaunchBar.alert('You are not logged in to Pinboard', 'Run the `Pinboard: Log In` action first.');
 		LaunchBar.performAction('Pinboard: Log In');
 		return false;
 	}
