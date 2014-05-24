@@ -11,7 +11,9 @@
 	<key>LBAbbreviation</key>
 	<string>pbt</string>
 	<key>LBDebugLogEnabled</key>
-	<true/>
+	<false/>
+	<key>CFBundleVersion</key>
+	<string>1.4.0</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>

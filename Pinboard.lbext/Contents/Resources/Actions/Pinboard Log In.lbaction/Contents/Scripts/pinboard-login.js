@@ -50,7 +50,6 @@ function saveApiToken(apiToken) {
 	});
 }
 
-
 function deleteApiToken() {
 	try {
 		LaunchBar.execute('/bin/bash', '-c', 'rm \'' + apiTokenPath() + '\'');
