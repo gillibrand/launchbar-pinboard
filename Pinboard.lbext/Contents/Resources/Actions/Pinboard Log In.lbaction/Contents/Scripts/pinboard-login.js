@@ -52,7 +52,13 @@ function saveApiToken(apiToken) {
 
 
 function deleteApiToken() {
-	LaunchBar.log('log out ' + apiTokenPath());
-	var out = LaunchBar.execute('/bin/bash', '-c', 'rm \'' + apiTokenPath() + '\'');
-	LaunchBar.log(out);
+	try {
+		LaunchBar.execute('/bin/bash', '-c', 'rm \'' + apiTokenPath() + '\'');
+	}
+	catch (e) {
+		LaunchBar.log('Log Out failed: ' + e);
+		LaunchBar.alert(
+			'Could not log out.',
+			'Your API token file was not deleted. You can try manually deleting the file at ' + apiTokenPath());
+	}
 }
