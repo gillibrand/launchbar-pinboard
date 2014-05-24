@@ -28,13 +28,17 @@ Search results can be up to five minutes out-of-date. This is done to improve pe
 
 This action is used by all the other actions in order to access your Pinboard account. Prompts for and saves your Pinboard API token. 
 
-Your API token (not password) is saved as plain-text in the Application Support directory for this action.
+Your API token (not password) is saved as plain-text in the Application Support directory for this action. You can delete it with the `Log Out` sub-action.
 
 # Building
 
 If you want edit or customize these actions for yourself, be aware that `Grunt` is used to append a shared script to each of the individual action scripts. See `shared.js` for more detail.
 
 # Version History
+
+### 5/24/2014
+
+- Added `Log Out` sub-action.
 
 #### 5/2/2014
 
