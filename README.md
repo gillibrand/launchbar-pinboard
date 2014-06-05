@@ -36,6 +36,10 @@ If you want edit or customize these actions for yourself, be aware that `Grunt` 
 
 # Version History
 
+### 6/4/2014
+
+- Auto-defers to Log In action if not logged in (updated for LaunchBar 6.0 beta 7). 
+
 ### 5/24/2014
 
 - Added `Log Out` sub-action.
