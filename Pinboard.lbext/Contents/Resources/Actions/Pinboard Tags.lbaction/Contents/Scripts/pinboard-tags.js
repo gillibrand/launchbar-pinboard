@@ -2,7 +2,7 @@
  * Lists all tags, sorted by count.
  */
 function run() {
-	if (!loadApiToken()) return;
+	if (!loadApiToken()) return loginErrorAsListResults();
 
 	var tags = getUrl('https://api.pinboard.in/v1/tags/get');
 	if (!tags) return;

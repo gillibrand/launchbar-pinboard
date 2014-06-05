@@ -2,7 +2,7 @@ function run(apiToken) {
 	var results = [];
 
 	results.push({
-		title: 'Enter your Pinboard API Token',
+		title: 'Enter your Pinboard API token',
 		subtitle: 'Enter you API token here to access your Pinboard account from LaunchBar',
 		icon: 'PinboardTemplate.png',
 		action: 'saveApiToken',
@@ -18,7 +18,7 @@ function run(apiToken) {
 	if (File.exists(apiTokenPath())) {
 		results.push({
 			title: 'Log Out',
-			subtitle: 'Delete your saved API token.',
+			subtitle: 'Delete your saved API token',
 			action: 'deleteApiToken'
 		});
 	}

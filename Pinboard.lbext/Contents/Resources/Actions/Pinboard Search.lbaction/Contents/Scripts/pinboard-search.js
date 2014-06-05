@@ -1,11 +1,12 @@
 var ALL_POSTS_FILE = Action.supportPath + '/all-posts.json';
 
-function run(query) {
+function runWithString(query) {
+	LaunchBar.log('do q with ' + query)
 	if (!query) {
 		return [];
 	}
 
-	if (!loadApiToken()) return [];
+	if (!loadApiToken()) return loginErrorAsListResults();
 
 	var posts = getCachedAllPosts();
 

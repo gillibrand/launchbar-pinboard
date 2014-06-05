@@ -36,7 +36,13 @@ module.exports = function(grunt) {
 						cwd: 'shared',
 						src: 'Contents/Resources/**/*.png',
 						dest: ACTIONS_DIR + 'Pinboard Search.lbaction/'
-					}
+					},
+					// {
+					// 	expand: true,
+					// 	cwd: 'shared',
+					// 	src: 'Contents/Resources/**/*.png',
+					// 	dest: ACTIONS_DIR + 'Pinboard Add.lbaction/'
+					// }
 				]
 			},
 
@@ -47,6 +53,7 @@ module.exports = function(grunt) {
 					'Pinboard Recent.lbaction/**',
 					'Pinboard Log In.lbaction/**',
 					'Pinboard Tags.lbaction/**',
+					// 'Pinboard Add.lbaction/**',
 					'Pinboard Search.lbaction/**'],
 				dest: path.join(
 					process.env.HOME || process.env.USERPROFILE,
@@ -69,7 +76,11 @@ module.exports = function(grunt) {
 					ACTIONS_DIR + 'Pinboard Search.lbaction/Contents/Scripts/search.js',
 					ACTIONS_DIR + 'Pinboard Search.lbaction/Contents/Scripts/pinboard-search.js'],
 				dest: ACTIONS_DIR + 'Pinboard Search.lbaction/Contents/Scripts/shared+search+pinboard-search.js'
-			}
+			},
+			// add: {
+			// 	src: ['shared/Contents/Scripts/shared.js', ACTIONS_DIR + 'Pinboard Add.lbaction/Contents/Scripts/pinboard-add.js'],
+			// 	dest: ACTIONS_DIR + 'Pinboard Add.lbaction/Contents/Scripts/shared+pinboard-add.js'
+			// }
 		},
 
 		watch: {

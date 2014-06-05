@@ -30,10 +30,23 @@ function loadApiToken() {
 		return true;
 	}
 	catch (e) {
-		LaunchBar.alert('You are not logged in to Pinboard', 'Run the `Pinboard: Log In` action first.');
-		LaunchBar.performAction('Pinboard: Log In');
+		LaunchBar.log('Failed to read log in token.');
 		return false;
 	}
+}
+
+/**
+ * Return a single action result to defers to the login in action.
+ * Used from other actions that can't get the API token (not logged in yet).
+ * 
+ * @return {array} single action to log in.
+ */
+function loginErrorAsListResults() {
+	return [{
+		title: 'Log In to Pinboard',
+		subtitle: 'Continue to log in with LaunchBar.',
+		actionBundleIdentifier: 'gillibrand.jay.pinboard.login'
+	}];
 }
 
 /**

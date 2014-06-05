@@ -30,10 +30,17 @@ function loadApiToken() {
 		return true;
 	}
 	catch (e) {
-		LaunchBar.alert('You are not logged in to Pinboard', 'Run the `Pinboard: Log In` action first.');
-		LaunchBar.performAction('Pinboard: Log In');
+		LaunchBar.log('Failed to read log in token.');
 		return false;
 	}
+}
+
+function loginErrorAsListResults() {
+	return [{
+		title: 'Log In to Pinboard',
+		subtitle: 'Continue to log in with LaunchBar.',
+		actionBundleIdentifier: 'gillibrand.jay.pinboard.login'
+	}];
 }
 
 /**
@@ -196,12 +203,13 @@ catch (e) {
 
 var ALL_POSTS_FILE = Action.supportPath + '/all-posts.json';
 
-function run(query) {
+function runWithString(query) {
+	LaunchBar.log('do q with ' + query)
 	if (!query) {
 		return [];
 	}
 
-	if (!loadApiToken()) return [];
+	if (!loadApiToken()) return loginErrorAsListResults();
 
 	var posts = getCachedAllPosts();
 

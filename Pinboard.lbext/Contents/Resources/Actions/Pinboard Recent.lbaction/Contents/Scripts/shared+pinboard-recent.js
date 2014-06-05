@@ -30,10 +30,17 @@ function loadApiToken() {
 		return true;
 	}
 	catch (e) {
-		LaunchBar.alert('You are not logged in to Pinboard', 'Run the `Pinboard: Log In` action first.');
-		LaunchBar.performAction('Pinboard: Log In');
+		LaunchBar.log('Failed to read log in token.');
 		return false;
 	}
+}
+
+function loginErrorAsListResults() {
+	return [{
+		title: 'Log In to Pinboard',
+		subtitle: 'Continue to log in with LaunchBar.',
+		actionBundleIdentifier: 'gillibrand.jay.pinboard.login'
+	}];
 }
 
 /**
@@ -100,7 +107,7 @@ function postsAsListResults(posts) {
 	});
 }
 function run() {
-	if (!loadApiToken()) return;
+	if (!loadApiToken()) return loginErrorAsListResults();
 
 	var data = getUrl('https://api.pinboard.in/v1/posts/recent', {
 		count: 25
