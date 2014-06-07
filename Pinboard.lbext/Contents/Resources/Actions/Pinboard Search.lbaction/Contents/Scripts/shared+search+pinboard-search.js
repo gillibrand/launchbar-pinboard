@@ -35,6 +35,12 @@ function loadApiToken() {
 	}
 }
 
+/**
+ * Return a single action result to defers to the login in action.
+ * Used from other actions that can't get the API token (not logged in yet).
+ * 
+ * @return {array} single action to log in.
+ */
 function loginErrorAsListResults() {
 	return [{
 		title: 'Log In to Pinboard',
@@ -204,12 +210,15 @@ catch (e) {
 var ALL_POSTS_FILE = Action.supportPath + '/all-posts.json';
 
 function runWithString(query) {
-	LaunchBar.log('do q with ' + query)
+
 	if (!query) {
 		return [];
 	}
 
-	if (!loadApiToken()) return loginErrorAsListResults();
+	if (!loadApiToken()) {
+
+		return loginErrorAsListResults();
+	}
 
 	var posts = getCachedAllPosts();
 

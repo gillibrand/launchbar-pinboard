@@ -35,6 +35,12 @@ function loadApiToken() {
 	}
 }
 
+/**
+ * Return a single action result to defers to the login in action.
+ * Used from other actions that can't get the API token (not logged in yet).
+ * 
+ * @return {array} single action to log in.
+ */
 function loginErrorAsListResults() {
 	return [{
 		title: 'Log In to Pinboard',
