@@ -1,3 +1,6 @@
+include('shared.js');
+include('search.js');
+
 var ALL_POSTS_FILE = Action.supportPath + '/all-posts.json';
 
 function runWithString(query) {

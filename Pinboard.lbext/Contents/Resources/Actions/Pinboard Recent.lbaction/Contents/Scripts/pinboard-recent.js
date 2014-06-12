@@ -1,3 +1,5 @@
+include('shared.js');
+
 function run() {
 	if (!loadApiToken()) return loginErrorAsListResults();
 

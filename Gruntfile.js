@@ -16,33 +16,27 @@ module.exports = function(grunt) {
 					{
 						expand: true,
 						cwd: 'shared',
-						src: 'Contents/Resources/**/*.png',
+						src: ['Contents/Resources/**/*.png'],
 						dest: ACTIONS_DIR + 'Pinboard Log In.lbaction/'
 					},
 					{
 						expand: true,
 						cwd: 'shared',
-						src: 'Contents/Resources/**/*.png',
+						src: ['Contents/Resources/**/*.png', 'Contents/Scripts/*.js'],
 						dest: ACTIONS_DIR + 'Pinboard Recent.lbaction/'
 					},
 					{
 						expand: true,
 						cwd: 'shared',
-						src: 'Contents/Resources/**/*.png',
+						src: ['Contents/Resources/**/*.png', 'Contents/Scripts/*.js'],
 						dest: ACTIONS_DIR + 'Pinboard Tags.lbaction/'
 					},
 					{
 						expand: true,
 						cwd: 'shared',
-						src: 'Contents/Resources/**/*.png',
+						src: ['Contents/Resources/**/*.png', 'Contents/Scripts/*.js'],
 						dest: ACTIONS_DIR + 'Pinboard Search.lbaction/'
-					},
-					// {
-					// 	expand: true,
-					// 	cwd: 'shared',
-					// 	src: 'Contents/Resources/**/*.png',
-					// 	dest: ACTIONS_DIR + 'Pinboard Add.lbaction/'
-					// }
+					}
 				]
 			},
 
@@ -53,7 +47,6 @@ module.exports = function(grunt) {
 					'Pinboard Recent.lbaction/**',
 					'Pinboard Log In.lbaction/**',
 					'Pinboard Tags.lbaction/**',
-					// 'Pinboard Add.lbaction/**',
 					'Pinboard Search.lbaction/**'],
 				dest: path.join(
 					process.env.HOME || process.env.USERPROFILE,
@@ -61,31 +54,9 @@ module.exports = function(grunt) {
 			}
 		},
 
-		concat: {
-			recent: {
-				src: ['shared/Contents/Scripts/shared.js', ACTIONS_DIR + 'Pinboard Recent.lbaction/Contents/Scripts/pinboard-recent.js'],
-				dest: ACTIONS_DIR + 'Pinboard Recent.lbaction/Contents/Scripts/shared+pinboard-recent.js'
-			},
-			tags: {
-				src: ['shared/Contents/Scripts/shared.js', ACTIONS_DIR + 'Pinboard Tags.lbaction/Contents/Scripts/pinboard-tags.js'],
-				dest: ACTIONS_DIR + 'Pinboard Tags.lbaction/Contents/Scripts/shared+pinboard-tags.js'
-			},
-			search: {
-				src: [
-					'shared/Contents/Scripts/shared.js',
-					ACTIONS_DIR + 'Pinboard Search.lbaction/Contents/Scripts/search.js',
-					ACTIONS_DIR + 'Pinboard Search.lbaction/Contents/Scripts/pinboard-search.js'],
-				dest: ACTIONS_DIR + 'Pinboard Search.lbaction/Contents/Scripts/shared+search+pinboard-search.js'
-			},
-			// add: {
-			// 	src: ['shared/Contents/Scripts/shared.js', ACTIONS_DIR + 'Pinboard Add.lbaction/Contents/Scripts/pinboard-add.js'],
-			// 	dest: ACTIONS_DIR + 'Pinboard Add.lbaction/Contents/Scripts/shared+pinboard-add.js'
-			// }
-		},
-
 		watch: {
 			install: {
-				files: ['**/*.js', 'shared/**/*.png', '*/*/Info.plist', '!**/shared+*.js', '!node_modules/**/*.js'],
+				files: ['**/*.js', 'shared/**/*.png', '*/*/Info.plist', '!node_modules/**/*.js'],
 				tasks: ['default']
 			}
 		},
@@ -94,7 +65,7 @@ module.exports = function(grunt) {
 			options: {
 				laxbreak: true
 			},
-			scripts: ['Gruntfile.js', 'shared/**/*.js', '*.lbaction/**/*.js', '!**/shared+*.js']
+			scripts: ['Gruntfile.js', 'shared/**/*.js', '*.lbaction/**/*.js']
 		},
 
 		mochaTest: {
@@ -106,6 +77,6 @@ module.exports = function(grunt) {
 
 	require('load-grunt-tasks')(grunt);
 
-	grunt.registerTask('default', ['jshint', 'copy:sharedResources', 'concat', 'copy:installActions']);
+	grunt.registerTask('default', ['jshint', 'copy:sharedResources', 'copy:installActions']);
 
 };

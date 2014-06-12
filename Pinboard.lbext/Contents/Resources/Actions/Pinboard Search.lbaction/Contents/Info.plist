@@ -15,7 +15,7 @@
 	<key>LBDebugLogEnabled</key>
 	<false/>
 	<key>CFBundleVersion</key>
-	<string>1.4.0</string>
+	<string>1.4.1</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
@@ -25,7 +25,7 @@
 				<string>string</string>
 			</array>
 			<key>LBScriptName</key>
-			<string>shared+search+pinboard-search.js</string>
+			<string>pinboard-search.js</string>
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBLiveFeedbackEnabled</key>

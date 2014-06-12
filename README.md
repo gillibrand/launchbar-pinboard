@@ -40,6 +40,10 @@ Newer betas LaunchBar provide a way to `include` JavaScript files at runtime. Th
 
 # Version History
 
+### 6/11/2014
+
+- Code clean up. Change how shared scripts are included to use `include` API.
+
 ### 6/4/2014
 
 - Auto-defers to Log In action if not logged in (updated for LaunchBar 6.0 beta 7). 

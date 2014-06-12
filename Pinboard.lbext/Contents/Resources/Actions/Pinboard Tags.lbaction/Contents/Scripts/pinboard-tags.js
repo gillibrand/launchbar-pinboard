@@ -1,3 +1,5 @@
+include('shared.js');
+
 /**
  * Lists all tags, sorted by count.
  */
