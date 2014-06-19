@@ -1,9 +1,8 @@
 /*
- * This script is concatenated (grunt) to the head of every other script so they
- * can share common log in and HTTP request behaviour.
- * This is needed since there is no JavaScript API to load other files
- * and there can only be a single entry point (.run) for each action in
- * LaunchBar. Each concated script is named like `shared+<the script>.js`.
+ * This script is copied (grunt) to each action directory so they can share
+ * common log in and HTTP request behaviour. It is included in each action with
+ * the LaunchBar specific `include` function, but this seems to require the
+ * shared script to be in the same directory as the calling script.
  */
 
 /**
