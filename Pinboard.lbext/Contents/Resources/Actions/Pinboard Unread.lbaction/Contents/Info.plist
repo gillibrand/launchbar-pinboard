@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>gillibrand.jay.pinboard-unread</string>
+	<key>CFBundleIconFile</key>
+	<string>PinboardTemplate.png</string>
+	<key>CFBundleName</key>
+	<string>Pinboard: Unread Bookmarks</string>
+	<key>LBAbbreviation</key>
+	<string>pbu</string>
+	<key>LBDebugLogEnabled</key>
+	<false/>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
+			<key>LBScriptName</key>
+			<string>pinboard-unread.js</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBRequiresArgument</key>
+			<false/>
+			<key>LBLiveFeedbackEnabled</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Jay Gillibrand</string>
+		<key>LBWebsite</key>
+		<string>https://github.com/gillibrand/launchbar-pinboard</string>
+		<key>LBSummary</key>
+		<string>Lists all your unread Pinboard bookmarks.</string>
+		<key>LBResult</key>
+		<string>All unread bookmarks.</string>
+		<key>LBRequirements</key>
+		<string>"Pinboard Log In" action.</string>
+	</dict>
+</dict>
+</plist>

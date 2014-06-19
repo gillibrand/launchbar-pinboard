@@ -112,3 +112,99 @@ function postsAsListResults(posts) {
 		return result;
 	});
 }
+
+function clearCachedAllPosts() {
+	Action.preferences.lastCacheTime = null;
+	LaunchBar.displayNotification({
+		subtitle: 'Pinboard for LaunchBar',
+		string: 'Cleared cached Pinboard bookmarks.'
+	});
+}
+
+/**
+ * Gets potentially all posts. Reads them from the cache file if available and
+ * it's less than 5 minutes old (as recommended by Pinboard.in for be-nice rate
+ * limiting).
+ *
+ * Unfortunately the cache is per-action since this shared script is actually
+ * copied to each action, and there is no trivial way to share preferences and
+ * support directories between actions.
+ * 
+ * @param  {object} params extra params to append to the "all" request.
+ * If the results are already cached, this is ignored (ugh).
+ * @return {array}        all posts, possibly from the cache. May be filtered
+ * if params were passed.
+ */
+function getAllPosts(params) {
+	var posts = getCachedAllPosts();
+
+	if (!posts) {
+		posts = cacheAllPosts(params);
+	}
+
+	return posts;
+}
+
+
+// duplicated from search.js since that's not "shared" will all actions.
+// TODO: clean up. Probably put all search.js into shared for simplicity.
+function indexText(text) {
+	return text.toLowerCase();
+}
+
+var ALL_POSTS_FILE = Action.supportPath + '/all-posts.json';
+
+/**
+ * Gets all posts and caches in the files system. Updates
+ * a "last cache" time in the preferences of the current action.
+ * @param  {object} params extra params to pass to the "all" request.
+ * @return {array}        all posts.
+ */
+function cacheAllPosts(params) {
+	var allPosts = getUrl('https://api.pinboard.in/v1/posts/all', params);
+
+	var simplePosts = allPosts.map(function(post) {
+		var indexedText = indexText(post.description + ' ' + post.extended + ' ' + post.tags);
+		post.indexedText = indexedText;
+		return post;
+	});
+	
+	File.writeJSON({
+		simplePosts: simplePosts
+	}, ALL_POSTS_FILE);
+
+	Action.preferences.lastCacheTime = Date.now();
+
+	return simplePosts;
+}
+
+/**
+ * Gets all the cached posts or null if there are none
+ * or the cache time expired.
+ * @return {array} null or array of cached posts.
+ */
+function getCachedAllPosts() {
+	var lastCacheTime = Action.preferences.lastCacheTime;
+
+	if (!lastCacheTime) {
+		LaunchBar.log('List of all my posts was never cached.');
+		return null;
+	}
+
+	var diffMillis = Date.now() - lastCacheTime;
+
+	if (diffMillis >= 5 * 60 * 1000) {
+		LaunchBar.log('List of all my posts is older than 5 mins. Ignoring cached list.');
+		return null;
+	}
+
+	try {
+		var simplePosts = File.readJSON(ALL_POSTS_FILE).simplePosts;
+		LaunchBar.log('Using cached list of all my posts.');
+		return simplePosts;
+	}
+	catch (e) {
+		LaunchBar.log('No cached all-posts files.');
+		return null;
+	}
+}

@@ -29,6 +29,12 @@ module.exports = function(grunt) {
 						expand: true,
 						cwd: 'shared',
 						src: ['Contents/Resources/**/*.png', 'Contents/Scripts/*.js'],
+						dest: ACTIONS_DIR + 'Pinboard Unread.lbaction/'
+					},
+					{
+						expand: true,
+						cwd: 'shared',
+						src: ['Contents/Resources/**/*.png', 'Contents/Scripts/*.js'],
 						dest: ACTIONS_DIR + 'Pinboard Tags.lbaction/'
 					},
 					{
@@ -44,6 +50,7 @@ module.exports = function(grunt) {
 				cwd: 'Pinboard.lbext/Contents/Resources/Actions',
 				expand: true,
 				src: [
+					'Pinboard Unread.lbaction/**',
 					'Pinboard Recent.lbaction/**',
 					'Pinboard Log In.lbaction/**',
 					'Pinboard Tags.lbaction/**',
