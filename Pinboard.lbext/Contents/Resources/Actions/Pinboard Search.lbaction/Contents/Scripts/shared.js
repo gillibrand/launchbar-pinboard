@@ -97,7 +97,7 @@ function postsAsListResults(posts) {
 		var result = {
 			title: post.description,
 			url: post.href,
-			icon: 'BookmarkTemplate.png'
+			icon: 'BookmarkTemplate.icns'
 		};
 
 		result.subtitle = post.extended

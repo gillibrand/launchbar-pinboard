@@ -5,7 +5,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>gillibrand.jay.pinboard-tags</string>
 	<key>CFBundleIconFile</key>
-	<string>PinboardTemplate.png</string>
+	<string>PinboardTemplate.icns</string>
 	<key>CFBundleName</key>
 	<string>Pinboard: Tags</string>
 	<key>LBAbbreviation</key>

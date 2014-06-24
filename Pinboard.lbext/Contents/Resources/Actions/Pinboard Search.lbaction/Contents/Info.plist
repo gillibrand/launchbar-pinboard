@@ -5,7 +5,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>gillibrand.jay.pinboard-search</string>
 	<key>CFBundleIconFile</key>
-	<string>PinboardTemplate.png</string>
+	<string>PinboardTemplate.icns</string>
 	<key>LBTextInputTitle</key>
 	<string>Search</string>
 	<key>CFBundleName</key>

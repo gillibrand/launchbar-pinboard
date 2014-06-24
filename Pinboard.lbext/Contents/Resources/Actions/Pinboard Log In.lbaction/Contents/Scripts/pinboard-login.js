@@ -4,7 +4,7 @@ function run(apiToken) {
 	results.push({
 		title: 'Enter your Pinboard API token',
 		subtitle: 'Enter you API token here to access your Pinboard account from LaunchBar',
-		icon: 'PinboardTemplate.png',
+		icon: 'PinboardTemplate.icns',
 		action: 'saveApiToken',
 		actionArgument: apiToken,
 	});
