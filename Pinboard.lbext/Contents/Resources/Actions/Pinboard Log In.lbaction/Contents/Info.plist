@@ -9,7 +9,7 @@
 	<key>LBTextInputTitle</key>
 	<string>API Token</string>
 	<key>CFBundleIconFile</key>
-	<string>PinboardTemplate.png</string>
+	<string>PinboardTemplate.icns</string>
 	<key>LBAbbreviation</key>
 	<string>pbl</string>
 	<key>LBDebugLogEnabled</key>

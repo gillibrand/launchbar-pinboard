@@ -16,31 +16,31 @@ module.exports = function(grunt) {
 					{
 						expand: true,
 						cwd: 'shared',
-						src: ['Contents/Resources/**/*.png'],
+						src: ['Contents/Resources/**/*.icns'],
 						dest: ACTIONS_DIR + 'Pinboard Log In.lbaction/'
 					},
 					{
 						expand: true,
 						cwd: 'shared',
-						src: ['Contents/Resources/**/*.png', 'Contents/Scripts/*.js'],
+						src: ['Contents/Resources/**/*.icns', 'Contents/Scripts/*.js'],
 						dest: ACTIONS_DIR + 'Pinboard Recent.lbaction/'
 					},
 					{
 						expand: true,
 						cwd: 'shared',
-						src: ['Contents/Resources/**/*.png', 'Contents/Scripts/*.js'],
+						src: ['Contents/Resources/**/*.icns', 'Contents/Scripts/*.js'],
 						dest: ACTIONS_DIR + 'Pinboard Unread.lbaction/'
 					},
 					{
 						expand: true,
 						cwd: 'shared',
-						src: ['Contents/Resources/**/*.png', 'Contents/Scripts/*.js'],
+						src: ['Contents/Resources/**/*.icns', 'Contents/Scripts/*.js'],
 						dest: ACTIONS_DIR + 'Pinboard Tags.lbaction/'
 					},
 					{
 						expand: true,
 						cwd: 'shared',
-						src: ['Contents/Resources/**/*.png', 'Contents/Scripts/*.js'],
+						src: ['Contents/Resources/**/*.icns', 'Contents/Scripts/*.js'],
 						dest: ACTIONS_DIR + 'Pinboard Search.lbaction/'
 					}
 				]
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 
 		watch: {
 			install: {
-				files: ['**/*.js', 'shared/**/*.png', '*/*/Info.plist', '!node_modules/**/*.js'],
+				files: ['**/*.js', 'shared/**/*.icns', '*/*/Info.plist', '!node_modules/**/*.js'],
 				tasks: ['default']
 			}
 		},

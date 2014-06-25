@@ -21,7 +21,7 @@ function run() {
 			actionArgument: tag,
 			actionReturnsItems: true,
 			count: count,
-			icon: 'TagTemplate.png'
+			icon: 'TagTemplate.icns'
 		};
 
 		results.push(result);

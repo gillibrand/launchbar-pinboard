@@ -42,6 +42,10 @@ If you want edit or customize these actions for yourself, be aware that `Grunt` 
 
 # Version History
 
+### 6/24/2014
+
+- Added retina icons courtesy of [Pete Schaffner](https://github.com/peteschaffner).
+
 ### 6/18/2014
 
 - Added `Pinboard Unread` action.
