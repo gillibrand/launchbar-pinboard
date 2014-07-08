@@ -67,6 +67,8 @@ function getUrl(url, params) {
 	 	}
 	 }
 
+	 LaunchBar.debugLog('GET ' + url);
+
 	 var result = HTTP.getJSON(url);
 
 	 if (result.data) return result.data;
@@ -160,6 +162,7 @@ var ALL_POSTS_FILE = Action.supportPath + '/all-posts.json';
  * @return {array}        all posts.
  */
 function cacheAllPosts(params) {
+	LaunchBar.log('Caching all bookmarks for local searching.');
 	var allPosts = getUrl('https://api.pinboard.in/v1/posts/all', params);
 
 	var simplePosts = allPosts.map(function(post) {
@@ -192,9 +195,24 @@ function getCachedAllPosts() {
 
 	var diffMillis = Date.now() - lastCacheTime;
 
-	if (diffMillis >= 5 * 60 * 1000) {
-		LaunchBar.log('List of all my posts is older than 5 mins. Ignoring cached list.');
-		return null;
+	if (diffMillis >= 5 * 1000) {
+		LaunchBar.log('List of all my posts is older than 5 mins. May re-cache all posts...');
+		
+		var lastUpdateIso = Action.preferences.lastUpdateIso;
+
+		var updateIso = getUrl('https://api.pinboard.in/v1/posts/update').update_time;
+		LaunchBar.debugLog('Last update time: ' + updateIso);
+		Action.preferences.lastUpdateIso = updateIso;
+
+		if (!lastUpdateIso) {
+			LaunchBar.log('No last update time was found. Will re-cache.');
+			return null;
+		}
+
+		if (updateIso !== lastUpdateIso) {
+			LaunchBar.log('Bookmarks were updated. Will re-cache.');
+			return null;
+		}
 	}
 
 	try {
