@@ -195,7 +195,7 @@ function getCachedAllPosts() {
 
 	var diffMillis = Date.now() - lastCacheTime;
 
-	if (diffMillis >= 5 * 1000) {
+	if (diffMillis / 1000.0 / 60.0 >= 5) {
 		LaunchBar.log('List of all my posts is older than 5 mins. May re-cache all posts...');
 		
 		var lastUpdateIso = Action.preferences.lastUpdateIso;
