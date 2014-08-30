@@ -42,6 +42,10 @@ If you want edit or customize these actions for yourself, be aware that `Grunt` 
 
 # Version History
 
+### 8/30/2014
+
+- Compatibility update for LaunchBar 6.1. `Action.supportPath` now includes a trailing slash.
+
 ### 7/7/2014
 
 - Improved search performance when bookmarks haven't changed since the last search.

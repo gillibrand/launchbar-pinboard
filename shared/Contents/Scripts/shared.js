@@ -19,17 +19,22 @@ var apiToken_;
  */
 function loadApiToken() {
 	var file = Action.supportPath;
-	var lastSlash = file.lastIndexOf('/');
+	// LaunchBar 6.1 added a trailing slash to this path. Try to work with either.
+	var tailRe = /Action Support\/?/;
+	var m = tailRe.exec(file);
+	var tailIndex = m.index;
+	var tailLength = m[0].length;
 	// The file is save in the support folder for the Pinboard Log In action.
 	// Different actions can't share a support folder, so just hard-code where it is.
-	file = file.slice(0, lastSlash) + '/gillibrand.jay.pinboard.login/api-token.txt';
+	file = file.slice(0, tailIndex + tailLength) + 'gillibrand.jay.pinboard.login/api-token.txt';
 
 	try {
+		LaunchBar.log('Will read API toke file at: ' + file);
 		apiToken_ = File.readText(file);
 		return true;
 	}
 	catch (e) {
-		LaunchBar.log('Failed to read log in token.');
+		LaunchBar.log('Failed to read log in token. ' + e);
 		return false;
 	}
 }
