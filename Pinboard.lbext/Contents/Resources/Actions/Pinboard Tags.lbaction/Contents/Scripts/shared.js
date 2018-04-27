@@ -102,10 +102,13 @@ function getUrl(url, params) {
 function postsAsListResults(posts) {
 	return posts.map(function(post) {
 		var result = {
-			title: post.description,
 			url: post.href,
 			icon: 'BookmarkTemplate.icns'
 		};
+		
+		result.title = post.description
+			? post.description
+			: post.href;
 
 		result.subtitle = post.extended
 			? post.extended

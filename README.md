@@ -42,6 +42,10 @@ If you want edit or customize these actions for yourself, be aware that `Grunt` 
 
 # Version History
 
+### 4/27/2018
+
+- Fix for unexpected title characters causing posts not to load courtesy of [Takeshi Suzuki](https://github.com/tockrock).
+
 ### 8/30/2014
 
 - Compatibility update for LaunchBar 6.1. `Action.supportPath` now includes a trailing slash.
